@@ -18,7 +18,7 @@ def data_processing(dataframe,index):
        df = dataframe.drop(['Unnamed: 0','model_name','proc_core_speed','proc_l2_cache','proc_l3_cache',"CPU1VCoreVR",'CPU2VCoreVR','CPU1MEM0123VR','CPU1MEM4567VR','CPU2MEM0123VR','CPU2MEM4567VR'],axis=1) 
        df = df.dropna() 
         
-    elif dataframe['server'].unique()[0] == '100.101.2.69':
+    """elif dataframe['server'].unique()[0] == '100.101.2.69':
         columns = [x+"A" if not(x.endswith(("A","B","C","D","E","F"))) and x.startswith('Fan') else x for x in dataframe.columns]
         dataframe.columns = columns
         df = dataframe.dropna()
@@ -28,7 +28,7 @@ def data_processing(dataframe,index):
         columns = [x+"A" if not(x.endswith(("A","B","C","D","E","F"))) and x.startswith('Fan') else x for x in dataframe.columns]
         dataframe.columns = columns
         df = dataframe.dropna()
-        df = df.drop(['Unnamed: 0','model_name','proc_core_speed','proc_l2_cache','proc_l3_cache'],axis=1)
+        df = df.drop(['Unnamed: 0','model_name','proc_core_speed','proc_l2_cache','proc_l3_cache'],axis=1)"""
     
     
     else:
