@@ -7,6 +7,7 @@
 import pandas as pd
 from flask import Flask, jsonify, Response
 import os
+from flask_cors import CORS, cross_origin
 
 
 # In[66]:
@@ -26,10 +27,14 @@ def data_processing(dataframe,index):
 
 
 app = Flask(__name__)
+cors = CORS(app)
+
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 path = 'DataSensNew'
 
 @app.route('/get_data/<int:key>',methods=['GET'])
+@cross_origin()
 def get_data(key):
     for index, files in enumerate(os.listdir(path),1):
         if key == index:
